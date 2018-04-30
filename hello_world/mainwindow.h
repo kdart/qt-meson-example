@@ -4,7 +4,7 @@
 #include <QtCore/QObject>
 #include <QtWidgets/QMainWindow>
 
-#include "hello_world/ui_mainwindow.h"
+#include "ui_mainwindow.h"
 
 class MainWindow : public QMainWindow
 {
