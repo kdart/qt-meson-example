@@ -1,0 +1,9 @@
+[wrap-file]
+directory = qt-everywhere-opensource-src-5.9.5
+source_url = http://mirrors.ocf.berkeley.edu/qt/archive/qt/5.9/5.9.5/single/qt-everywhere-opensource-src-5.9.5.tar.xz
+source_filename = qt-everywhere-opensource-src-5.9.5.tar.xz
+source_hash = a75b87f46240a374fde93fb60038d63e3b570457785268c766c639b5dc18ccf6
+
+# patch_url = file://subprojects/qt-everywhere-opensource-src-5.9.5.diff
+# patch_filename = qt-everywhere-opensource-src-5.9.5.diff
+# patch_hash = 14f04d24fd90b29a80245118e6cfdd09f6af954218b75966fc2a67ba3174fb28

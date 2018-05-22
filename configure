@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Qt Dependency:
+# DESIRED_QT=5.9.5
+# cd ~/build/qt-everywhere-src-${DESIRED_QT}
+# ./configure -I /opt/brew/include -L /opt/brew/lib -prefix /opt/Qt${DESIRED_QT} -nomake tests -nomake examples -opensource -skip qt3d -c++std c++11 -recheck-all
+
+OS=`uname`
+
+if [ $OS = "Darwin" ] ; then
+    echo "Building for MacOS"
+    QMAKE=`which qmake`
+    if [ $? != 0 ] ; then
+        echo "Make sure qmake is on your PATH (the version you want, e.g. 5.9.5)"
+        exit 1
+    fi
+    MESON=`which meson`
+    if [ $? != 0 ] ; then
+        echo "You need to install meson and ninja"
+        exit 1
+    fi
+
+    QT_VERSION=`$QMAKE -query QT_VERSION`
+    QT_DIR=`$QMAKE -query QT_HOST_PREFIX`
+
+    echo "Using Qt: $QT_VERSION at $QT_DIR"
+    export QT_DIR
+    mkdir -p build
+    mkdir -p install
+    meson --prefix=${PWD}/install/hello_world.app --bindir=Contents/MacOS build
+#   cd build
+    echo
+    echo "Run 'cd build ; ninja' to perform a build."
+    echo "Run 'cd build ; ninja install' to perform an installation."
+else
+    echo "Not Supported yet!"
+    exit 1
+fi
