@@ -24,11 +24,10 @@ if [ $OS = "Darwin" ] ; then
     QT_DIR=`$QMAKE -query QT_HOST_PREFIX`
 
     echo "Using Qt: $QT_VERSION at $QT_DIR"
-    export QT_DIR
+
     mkdir -p build
     mkdir -p install
     meson --prefix=${PWD}/install/hello_world.app --bindir=Contents/MacOS build
-#   cd build
     echo
     echo "Run 'cd build ; ninja' to perform a build."
     echo "Run 'cd build ; ninja install' to perform an installation."

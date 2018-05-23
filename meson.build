@@ -2,7 +2,8 @@
 # meson --prefix=/tmp/hello_world.app --bindir=Contents/MacOS build
 
 # Qt Dependency:
-# ~/opensrc/qt-everywhere-src-5.9.5/configure -prefix /opt/Qt5.9.5 -opensource -platform macx-clang
+# I installed Qt, and my homebrew, in /opt as follows:
+# ./configure -I /opt/brew/include -L /opt/brew/lib -prefix /opt/Qt${DESIRED_QT} -nomake tests -nomake examples -opensource -skip qt3d -c++std c++11 -recheck-all
 
 project('com.qanalysts.qt_hello_world', 'c', 'cpp',
         license: 'APACHE2',
