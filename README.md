@@ -17,19 +17,19 @@ Building also depends on [homebrew](https://brew.sh/). I install everything in
 I currently install Qt from source, first. I would like to get Qt as part of the
 build using a subproject, but that's not fully set up yet.
 
-Download: http://mirrors.ocf.berkeley.edu/qt/archive/qt/5.9/5.9.5/single/qt-everywhere-opensource-src-5.9.5.tar.xz
+Download: http://mirrors.ocf.berkeley.edu/qt/archive/qt/5.9/5.9.6/single/qt-everywhere-opensource-src-5.9.6.tar.xz
 
 Build like this:
 
 ```sh
-DESIRED_QT=5.9.5
+DESIRED_QT=5.9.6
 SRC=$PWD
 
 cd ~/build
 tar xJf ~/Downloads/qt-everywhere-opensource-src-${DESIRED_QT}.tar.xz
 cd qt-everywhere-src-${DESIRED_QT}
 ./configure -prefix /opt/Qt${DESIRED_QT} -nomake tests -nomake examples -opensource -skip qt3d -c++std c++11
-patch -p1 < $SRC/subprojects/qt-everywhere-opensource-src-5.9.5.diff
+patch -p1 < $SRC/subprojects/qt-everywhere-opensource-src-${DESIRED_QT}.diff
 make
 sudo make install
 ```
